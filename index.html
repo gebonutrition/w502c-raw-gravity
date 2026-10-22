@@ -2302,15 +2302,11 @@
 .email-copy .w502c-offer-button {
   display: flex;
   align-items: stretch;
-  width: fit-content;
-  max-width: 100%;
+  width: 100%;
+  max-width: 440px;
   height: 60px;
-  margin: 0 0 18px;
-}
-
-.email-copy .w502c-offer-signature {
-  margin-top: 18px;
-  font-style: italic;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 /* COMMUNITY NEWSLETTER */
@@ -2326,11 +2322,12 @@
   align-items: center;
   justify-content: space-between;
   gap: 48px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .w502c-community__copy {
-  flex: 1 1 320px;
+  flex: 0 1 560px;
+  width: 560px;
   max-width: 560px;
 }
 
@@ -2352,9 +2349,10 @@
 }
 
 .w502c-community__form {
-  flex: 1 1 420px;
+  flex: 0 0 520px;
   width: 520px;
   max-width: 100%;
+  margin-left: auto;
 }
 
 .w502c-community .lead-form {
@@ -2481,7 +2479,16 @@
     box-sizing: border-box;
   }
 }
+@media (min-width: 641px) and (max-width: 1000px) {
+  .w502c-community__inner {
+    flex-wrap: wrap;
+  }
 
+  .w502c-community__form {
+    margin-left: 0;
+    flex: 0 1 520px;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .w502c-marquee__track {
     animation: none;
@@ -2796,8 +2803,6 @@
             <span class="offer">Buy Now on Amazon -48%</span>
           </a>
 
-          <p class="fine-print w502c-offer-signature">With care, Raw Gravity</p>
-
         </div>
 
       </section>
@@ -2840,10 +2845,6 @@
                 </button>
 
               </form>
-
-              <p class="fine-print">
-                No spam. Unsubscribe anytime.
-              </p>
 
             </div>
 
