@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     }
 
 	const cleanEmail = email.trim();
-	const cleanLanding = String(landing || 'w502').trim();
+	const cleanLanding = String(landing || 'w502c').trim();
 	const cleanSource = String(source || 'direct').trim();
 	const cleanCreative = String(creative || 'unknown').trim();
 

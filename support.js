@@ -31,6 +31,14 @@
   };
 
   const DEFAULT_AMAZON_URL = AMAZON_URLS.meta;
+    const pageAmazonUrl =
+    AMAZON_URLS[normalizedSource] || DEFAULT_AMAZON_URL;
+
+  document.querySelectorAll('[data-amazon-link]').forEach((link) => {
+    link.href = pageAmazonUrl;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+  });
 
   if (!form || !emailInput || !submitButton || !formState || !successState) {
     return;
@@ -57,7 +65,7 @@
         },
         body: JSON.stringify({
           email,
-		  landing: 'w502',
+		  landing: 'w502c',
           source,
           creative
         })
@@ -81,18 +89,11 @@
 		  window.rawGravityTrackMetaLead();
 		}
 
-      setTimeout(() => {
-        window.location.href =
-          AMAZON_URLS[normalizedSource] ||
-          data.amazonUrl ||
-          DEFAULT_AMAZON_URL;
-      }, 1500);
-
     } catch (error) {
       console.error('Form submission error:', error);
 
       submitButton.disabled = false;
-      submitButton.textContent = 'Get my discount →';
+      submitButton.textContent = 'Subscribe  →';
 
       alert('Something went wrong. Please try again.');
     }
